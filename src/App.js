@@ -23,13 +23,12 @@ const App = () => {
 
   useEffect(()=>{
     const filteredEmployees = employees.filter((employee) => {
-      return employee.name.includes(searchTerm);
+      return employee.name.toLowerCase().includes(searchTerm.toLowerCase())
     })
     setFilteredEmployees(filteredEmployees)
   }, [searchTerm, employees])
 
   const handleInputChange = (e) => {
-    console.log(e.target.value)
     setSearchTerm(e.target.value);
   }
 
